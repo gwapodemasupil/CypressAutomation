@@ -12,7 +12,7 @@ class getNotificationsApi {
         let individualApiId = '';
 
         //Getting random user from database
-        const getRandomUser = `select top 1 i.apiid, u.apiid from clients c inner join users u on u.clientid = c.id inner join individuals i on i.id = u.individualid where c.resellerid = 4 and c.status = 'approved' and u.isActive = 1 order by newid()`;
+        const getRandomUser = `select top 1 i.apiid, u.apiid from clients c inner join users u on u.clientid = c.id inner join individuals i on i.id = u.individualid where c.resellerid = 6 and c.status = 'approved' and u.isActive = 1 order by newid()`;
         cy.sqlServer(getRandomUser).then((result) => {
             individualApiId = result[0][0].value
             userApiId = result[0][1].value
